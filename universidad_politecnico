@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class EjercicioSiglo { // Eliminé "public" para evitar el error de nombre de archivo.
+
+    /**TRABAJO COLABORATIVO_1
+      **HERBERT ARIZA PEDRAZA
+       * PAULA ANDREA ARANDA CABALLERO
+       * RUBÉN ARANGO LONDOÑO
+       * ESTEFANIA ARANGO RESTREPO
+       * YULIANA ARDILA ESTRADA
+       * ALISSON ARIAS
+ 
+     * Método que calcula el siglo al que pertenece un año dado.
+     * @param anho Año (positivo) del cual queremos saber el siglo.
+     * @return Número del siglo al que pertenece el año dado.
+     */
+    public static int siglo(int anho) {
+        // Calcula el siglo sumando 99 al año y dividiéndolo por 100.
+        return (anho + 99) / 100;
+    }
+
+    /**
+     * Método que calcula el primer año de un siglo dado.
+     *
+     * @param siglo Número de siglo (positivo) del cual queremos saber el primer año.
+     * @return Número del primer año del siglo dado.
+     */
+    public static int primer_anho(int siglo) {
+        // El primer año del siglo es (siglo * 100) - 99.
+        return (siglo * 100) - 99;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario que ingrese un año.
+        System.out.print("Ingrese un año: ");
+        int anho = scanner.nextInt();
+
+        // Validar que el año ingresado sea positivo.
+        if (anho <= 0) {
+            System.out.println("Por favor, ingrese un año positivo.");
+        } else {
+            // Calcular el siglo y el primer año del siglo usando los métodos definidos.
+            int sigloCalculado = siglo(anho);
+            int primerAnhoDelSiglo = primer_anho(sigloCalculado);
+
+            // Mostrar los resultados al usuario.
+            System.out.println("El año " + anho + " pertenece al siglo " + sigloCalculado + ".");
+            System.out.println("El primer año del siglo " + sigloCalculado + " es " + primerAnhoDelSiglo + ".");
+        }
+
+        // Cerrar el scanner para evitar fugas de recursos.
+        scanner.close();
+    }
+}
